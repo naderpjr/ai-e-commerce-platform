@@ -1,3 +1,5 @@
+import { FeaturedCarousel } from "@/components/FeaturedCarousel";
+import { FeaturedCarouselSkeleton } from "@/components/FeaturedCarouselSkeleton";
 import { sanityFetch } from "@/sanity/lib/live";
 import { ALL_CATEGORIES_QUERY } from "@/sanity/queries/categories";
 import {
@@ -7,6 +9,7 @@ import {
   FILTER_PRODUCTS_BY_PRICE_DESC_QUERY,
   FILTER_PRODUCTS_BY_RELEVANCE_QUERY,
 } from "@/sanity/queries/products";
+import { Suspense } from "react";
 
 interface PageProps {
   searchParams: Promise<{
@@ -55,17 +58,39 @@ export default async function HomePage({ searchParams }: PageProps) {
     }
   };
 
+  // Fetch products with filters (server-side via GROQ)
+  const { data: products } = await sanityFetch({
+    query: getQuery(),
+    params: {
+      searchQuery,
+      categorySlug,
+      color,
+      material,
+      minPrice,
+      maxPrice,
+      inStock,
+    },
+  });
+
 
   // Fetch categories for filter sidebar
   const { data: categories } = await sanityFetch({
     query: ALL_CATEGORIES_QUERY,
   });
 
-  console.log(categories);
+  // Fetch featured products for carousel
+  const { data: featuredProducts } = await sanityFetch({
+    query: FEATURED_PRODUCTS_QUERY,
+  });
 
   return (
     <div className="">
-      <h1>Hello World</h1>
+      {/* Featured Products Carousel */}
+      {featuredProducts.length > 0 && (
+        <Suspense fallback={<FeaturedCarouselSkeleton />}>
+          <FeaturedCarousel products={featuredProducts} />
+        </Suspense>
+      )}
     </div>
   );
 }
