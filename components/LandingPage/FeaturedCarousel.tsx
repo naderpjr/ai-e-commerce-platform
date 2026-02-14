@@ -52,7 +52,7 @@ export function FeaturedCarousel({ products }: FeaturedCarouselProps) {
   }
 
   return (
-    <div className="relative w-full bg-linear-to-br from-zinc-900 via-zinc-800 to-zinc-900 dark:from-zinc-950 dark:via-zinc-900 dark:to-zinc-950">
+    <div className="relative w-full bg-zinc-900">
       <Carousel
         setApi={setApi}
         opts={{
@@ -129,10 +129,6 @@ function FeaturedSlide({ product }: FeaturedSlideProps) {
             <span className="text-zinc-500">No image</span>
           </div>
         )}
-
-        {/* Gradient overlay for image edge blending */}
-        <div className="absolute inset-0 bg-linear-to-r from-transparent via-transparent to-zinc-900/90 dark:to-zinc-950/90 hidden md:block" />
-        <div className="absolute inset-0 bg-linear-to-t from-zinc-900/90 via-transparent to-transparent md:hidden" />
       </div>
 
       {/* Content Section - Right side (40% on desktop) */}
