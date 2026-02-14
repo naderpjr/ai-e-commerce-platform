@@ -1,4 +1,6 @@
 import { CartStoreProvider } from '@/lib/store/cart-store-provider';
+import { Toaster } from "@/components/ui/sonner";
+
 import { SanityLive } from '@/sanity/lib/live';
 import { ClerkProvider } from '@clerk/nextjs';
 import React, { Children } from 'react'
@@ -10,6 +12,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                 <main>
                     {children}
                 </main>
+                <Toaster position="bottom-center" />
                 <SanityLive />
             </CartStoreProvider>
         </ClerkProvider>

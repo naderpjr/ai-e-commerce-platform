@@ -1,7 +1,7 @@
 "use client";
 
 import { Minus, Plus, ShoppingBag } from "lucide-react";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { useCartActions, useCartItem } from "@/lib/store/cart-store-provider";
 import { cn } from "@/lib/utils";
@@ -33,7 +33,7 @@ export function AddToCartButton({
   const handleAdd = () => {
     if (quantityInCart < stock) {
       addItem({ productId, name, price, image }, 1);
-      // toast.success(`Added ${name}`);
+      toast.success(`Added ${name}`);
     }
   };
 
