@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import React, { Children } from 'react'
 import { ChatStoreProvider } from '@/lib/store/chat-store-provider';
 import { Header } from '@/components/LandingPage/Header';
+import { CartSheet } from '@/components/LandingPage/CartSheet';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
@@ -16,6 +17,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
                     <main>
                         {children}
                     </main>
+                    <CartSheet />
                     <Toaster position="bottom-center" />
                     <SanityLive />
                 </ChatStoreProvider>
