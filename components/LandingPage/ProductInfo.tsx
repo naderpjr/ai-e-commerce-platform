@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { AddToCartButton } from "@/components/app/AddToCartButton";
-import { AskAISimilarButton } from "@/components/app/AskAISimilarButton";
-import { StockBadge } from "@/components/app/StockBadge";
+import { AddToCartButton } from "@/components/LandingPage/AddToCartButton";
+import { AskAISimilarButton } from "@/components/LandingPage/AskAISimilarButton";
+import { StockBadge } from "@/components/LandingPage/StockBadge";
 import { formatPrice } from "@/lib/utils";
 import type { PRODUCT_BY_SLUG_QUERYResult } from "@/sanity.types";
 
