@@ -1,5 +1,5 @@
-import { ProductGallerySkeleton } from "@/components/app/ProductGallerySkeleton";
-import { ProductInfoSkeleton } from "@/components/app/ProductInfoSkeleton";
+import { ProductGallerySkeleton } from "@/components/LandingPage/ProductGallerySkeleton";
+import { ProductInfoSkeleton } from "@/components/LandingPage/ProductInfoSkeleton";
 
 export default function ProductLoading() {
   return (
